@@ -89,7 +89,13 @@ procedure TicketProgram is
             New_Line;
             Put (">");
 
-            Trains_IO.Get (SubmenuChoice);
+            begin
+                Trains_IO.Get (SubmenuChoice);
+            exception
+                when Data_Error =>
+                    Skip_Line;
+                    SubmenuChoice := nothing;
+            end;
 
             case SubmenuChoice is
                 when newburg =>
