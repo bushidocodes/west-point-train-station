@@ -28,7 +28,7 @@ procedure TicketProgram is
 
             New_Line;
             Put ("The total cost is > $");
-            Money_IO.Put (TotalCost, Aft => 2, Exp => 0);
+            Money_IO.Put (TotalCost, Fore => 1, Aft => 2, Exp => 0);
             New_Line;
             Put ("Enter amount paid");
             New_Line;
@@ -69,7 +69,7 @@ procedure TicketProgram is
 
             New_Line;
             Put ("The total cost is > $");
-            Money_IO.Put (TotalCost, Aft => 2, Exp => 0);
+            Money_IO.Put (TotalCost, Fore => 1, Aft => 2, Exp => 0);
             New_Line;
             Put ("Enter amount paid");
             New_Line;
