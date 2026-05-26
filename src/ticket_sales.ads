@@ -10,6 +10,17 @@ package Ticket_Sales is
     procedure Check_Tickets
        (NewburgSupply : in Natural; NyackSupply : in Natural);
 
+    type Change_Breakdown is record
+        Dollars  : Natural;
+        Quarters : Natural;
+        Dimes    : Natural;
+        Nickels  : Natural;
+        Pennies  : Natural;
+    end record;
+
+    function Calculate_Change (Amount : Money) return Change_Breakdown
+       with Pre => Amount >= 0.00;
+
     procedure Find_Change (TotalChange : in Money)
        with Pre => TotalChange >= 0.00;
 
