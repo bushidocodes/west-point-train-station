@@ -1,13 +1,13 @@
-with Ada.Text_IO, Ada.Float_Text_IO, Ada.Integer_Text_IO;
-use Ada.Text_IO, Ada.Float_Text_IO, Ada.Integer_Text_IO;
+with Ada.Text_IO, Ada.Integer_Text_IO;
+use Ada.Text_IO, Ada.Integer_Text_IO;
 
 package body TicketProgramPackage is
 
-    procedure View_Total_Sales (TotalProfit : in Float) is
+    procedure View_Total_Sales (TotalProfit : in Money) is
     begin
         New_Line;
         Put ("The total of sales is \$");
-        Put (TotalProfit, Aft => 2, Exp => 0);
+        Money_IO.Put (TotalProfit, Aft => 2, Exp => 0);
     end View_Total_Sales;
 
     procedure Check_Tickets
@@ -34,8 +34,7 @@ package body TicketProgramPackage is
 
     end Check_Tickets;
 
-    procedure Find_Change (TotalChange : in Float) is
-        TotalChangeHundred : Float;
+    procedure Find_Change (TotalChange : in Money) is
         TotalChangeInteger : Integer;
         NumberDollars      : Integer;
         NumberQuarters     : Integer;
@@ -66,9 +65,7 @@ package body TicketProgramPackage is
         NumberNickels  := 0;
         NumberPennies  := 0;
 
-        --convert TotalChange to TotalChangeInteger
-        TotalChangeHundred := TotalChange * 100.0;
-        TotalChangeInteger := Integer (TotalChangeHundred);
+        TotalChangeInteger := Integer (TotalChange * 100);
 
         --calculate amount of dollars needed]
         NumberDollars      := Find_Number_Coins (100, TotalChangeInteger);
