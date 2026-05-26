@@ -20,7 +20,7 @@ procedure TicketProgram is
         Put (">");
         Get (NumberTickets);
 
-        if NewburgSupply - NumberTickets >= 0 and NumberTickets > 0 then
+        if NewburgSupply - NumberTickets >= 0 and then NumberTickets > 0 then
             New_Line;
             Put ("Sufficient Supply");
 
@@ -61,7 +61,7 @@ procedure TicketProgram is
         Put (">");
         Get (NumberTickets);
 
-        if NyackSupply - NumberTickets >= 0 and NumberTickets > 0 then
+        if NyackSupply - NumberTickets >= 0 and then NumberTickets > 0 then
             New_Line;
             Put ("Sufficient Supply");
 
