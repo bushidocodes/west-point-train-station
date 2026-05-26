@@ -118,18 +118,19 @@ procedure TicketProgram is
 
             Trains_IO.Get (SubmenuChoice);
 
-            if SubmenuChoice = newburg then
-                NewburgSupply := 10;
-            elsif SubmenuChoice = nyack then
-                NyackSupply := 15;
-            elsif SubmenuChoice = quit then
-                null;
-            else
-                New_Line;
-                Put ("Invalid Input: Reenter");
-                New_Line;
-                New_Line;
-            end if;
+            case SubmenuChoice is
+                when newburg =>
+                    NewburgSupply := 10;
+                when nyack =>
+                    NyackSupply := 15;
+                when quit =>
+                    null;
+                when nothing =>
+                    New_Line;
+                    Put ("Invalid Input: Reenter");
+                    New_Line;
+                    New_Line;
+            end case;
         end loop;
     end TrainDeparture;
 
@@ -154,27 +155,34 @@ begin
 
         Get (MenuChoice);
 
-        if MenuChoice = 1 then
-            New_Line;
-            Newburg;
-            New_Line;
-        elsif MenuChoice = 2 then
-            New_Line;
-            Nyack;
-            New_Line;
-        elsif MenuChoice = 3 then
-            New_Line;
-            TrainDeparture;
-            New_Line;
-        elsif MenuChoice = 4 then
-            New_Line;
-            Check_Tickets (NewburgSupply, NyackSupply);
-            New_Line;
-        elsif MenuChoice = 5 then
-            New_Line;
-            View_Total_Sales (TotalProfit);
-            New_Line;
-        end if;
+        case MenuChoice is
+            when 1 =>
+                New_Line;
+                Newburg;
+                New_Line;
+            when 2 =>
+                New_Line;
+                Nyack;
+                New_Line;
+            when 3 =>
+                New_Line;
+                TrainDeparture;
+                New_Line;
+            when 4 =>
+                New_Line;
+                Check_Tickets (NewburgSupply, NyackSupply);
+                New_Line;
+            when 5 =>
+                New_Line;
+                View_Total_Sales (TotalProfit);
+                New_Line;
+            when 6 =>
+                null;
+            when others =>
+                New_Line;
+                Put ("Invalid Input: Please enter 1-6");
+                New_Line;
+        end case;
     end loop;
 
 end TicketProgram;

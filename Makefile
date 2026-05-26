@@ -1,5 +1,5 @@
 CC=gnatmake
-OPTS= -gnat95
+OPTS= -gnat2022
 SRC=ticketprogram.adb ticketprogrampackage.adb ticketprogrampackage.ads
 
 build:
