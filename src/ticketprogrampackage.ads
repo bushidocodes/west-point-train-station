@@ -9,7 +9,7 @@ package TicketProgramPackage is
     --Post: Outputs the total profit to the user
 
     procedure Check_Tickets
-       (NewburgSupply : in Integer; NyackSupply : in Integer);
+       (NewburgSupply : in Natural; NyackSupply : in Natural);
     --Pre: Input Integer values of the number of Newburg and Nyack tickets available
     --Post: Lists out the tickets available
 
