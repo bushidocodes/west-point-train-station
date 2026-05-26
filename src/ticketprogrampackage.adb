@@ -7,7 +7,7 @@ package body TicketProgramPackage is
     begin
         New_Line;
         Put ("The total of sales is \$");
-        Money_IO.Put (TotalProfit, Aft => 2, Exp => 0);
+        Money_IO.Put (TotalProfit, Fore => 1, Aft => 2, Exp => 0);
     end View_Total_Sales;
 
     procedure Check_Tickets

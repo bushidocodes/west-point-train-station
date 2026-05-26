@@ -20,7 +20,7 @@ procedure TicketProgram is
         Put (">");
         Get (NumberTickets);
 
-        if NewburgSupply - NumberTickets >= 0 and NumberTickets > 0 then
+        if NewburgSupply - NumberTickets >= 0 and then NumberTickets > 0 then
             New_Line;
             Put ("Sufficient Supply");
 
@@ -28,7 +28,7 @@ procedure TicketProgram is
 
             New_Line;
             Put ("The total cost is > $");
-            Money_IO.Put (TotalCost, Aft => 2, Exp => 0);
+            Money_IO.Put (TotalCost, Fore => 1, Aft => 2, Exp => 0);
             New_Line;
             Put ("Enter amount paid");
             New_Line;
@@ -61,7 +61,7 @@ procedure TicketProgram is
         Put (">");
         Get (NumberTickets);
 
-        if NyackSupply - NumberTickets >= 0 and NumberTickets > 0 then
+        if NyackSupply - NumberTickets >= 0 and then NumberTickets > 0 then
             New_Line;
             Put ("Sufficient Supply");
 
@@ -69,7 +69,7 @@ procedure TicketProgram is
 
             New_Line;
             Put ("The total cost is > $");
-            Money_IO.Put (TotalCost, Aft => 2, Exp => 0);
+            Money_IO.Put (TotalCost, Fore => 1, Aft => 2, Exp => 0);
             New_Line;
             Put ("Enter amount paid");
             New_Line;
