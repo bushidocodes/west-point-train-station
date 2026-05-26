@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt install gnat-8
+sudo apt install gnat-12
