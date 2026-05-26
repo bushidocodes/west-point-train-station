@@ -13,22 +13,18 @@ package body TicketProgramPackage is
     procedure Check_Tickets
        (NewburgSupply : in Integer; NyackSupply : in Integer)
     is
-        Counter : Integer;
     begin
         New_Line;
-        Counter := 1;
         Put ("Ticket Inventory:");
         New_Line;
 
-        while NewburgSupply - Counter >= 0 loop
-            Put (Counter);
+        for Count in 1 .. NewburgSupply loop
+            Put (Count);
             Put (" Newburg Ticket");
             New_Line;
-            Counter := Counter + 1;
         end loop;
 
         New_Line;
-        Counter := 1;
 
         for Count in 1 .. NyackSupply loop
             Put (Count);
