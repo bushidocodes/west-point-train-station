@@ -31,23 +31,20 @@ procedure TicketProgram is
 
     procedure Sell_Tickets (Dest : in out Destination) is
     begin
-        Put ("Purchase how many tickets to " & To_String (Dest.Name) & "?");
-        New_Line;
+        Put_Line ("Purchase how many tickets to " & To_String (Dest.Name) & "?");
         Put (">");
         Get (NumberTickets);
 
         if Dest.Supply - NumberTickets >= 0 and then NumberTickets > 0 then
             New_Line;
-            Put ("Sufficient Supply");
+            Put_Line ("Sufficient Supply");
 
             TotalCost := Dest.Cost * NumberTickets;
 
-            New_Line;
             Put ("The total cost is > $");
             Money_IO.Put (TotalCost, Fore => 1, Aft => 2, Exp => 0);
             New_Line;
-            Put ("Enter amount paid");
-            New_Line;
+            Put_Line ("Enter amount paid");
             Put ("> $");
             Money_IO.Get (AmountPaid);
 
@@ -79,14 +76,10 @@ procedure TicketProgram is
     begin
 
         while SubmenuChoice /= quit loop
-            Put ("Train Departure Submenu:");
-            New_Line;
-            Put ("Type 'newburg' to process Train Departure to Newburg");
-            New_Line;
-            Put ("Type 'nyack' to process Train Departure to Nyack");
-            New_Line;
-            Put ("Type 'quit' to return to Main Menu");
-            New_Line;
+            Put_Line ("Train Departure Submenu:");
+            Put_Line ("Type 'newburg' to process Train Departure to Newburg");
+            Put_Line ("Type 'nyack' to process Train Departure to Nyack");
+            Put_Line ("Type 'quit' to return to Main Menu");
             Put (">");
 
             begin
@@ -106,8 +99,7 @@ procedure TicketProgram is
                     null;
                 when nothing =>
                     New_Line;
-                    Put ("Invalid Input: Reenter");
-                    New_Line;
+                    Put_Line ("Invalid Input: Reenter");
                     New_Line;
             end case;
         end loop;
@@ -116,20 +108,13 @@ procedure TicketProgram is
 begin
     while MenuChoice /= 6 loop
         New_Line;
-        Put ("Main Menu:");
-        New_Line;
-        Put ("1)Sell Tickets to Newburg");
-        New_Line;
-        Put ("2)Sell Tickets to Nyack");
-        New_Line;
-        Put ("3)Process Train Departure");
-        New_Line;
-        Put ("4)Check Tickets Remaining");
-        New_Line;
-        Put ("5)View Total Sales");
-        New_Line;
-        Put ("6)End Program");
-        New_Line;
+        Put_Line ("Main Menu:");
+        Put_Line ("1)Sell Tickets to Newburg");
+        Put_Line ("2)Sell Tickets to Nyack");
+        Put_Line ("3)Process Train Departure");
+        Put_Line ("4)Check Tickets Remaining");
+        Put_Line ("5)View Total Sales");
+        Put_Line ("6)End Program");
         Put (">");
 
         Get (MenuChoice);
@@ -159,8 +144,7 @@ begin
                 null;
             when others =>
                 New_Line;
-                Put ("Invalid Input: Please enter 1-6");
-                New_Line;
+                Put_Line ("Invalid Input: Please enter 1-6");
         end case;
     end loop;
 

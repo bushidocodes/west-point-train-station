@@ -6,7 +6,7 @@ package body TicketProgramPackage is
     procedure View_Total_Sales (TotalProfit : in Money) is
     begin
         New_Line;
-        Put ("The total of sales is \$");
+        Put ("The total of sales is $");
         Money_IO.Put (TotalProfit, Fore => 1, Aft => 2, Exp => 0);
     end View_Total_Sales;
 
