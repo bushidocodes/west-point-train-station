@@ -42,12 +42,6 @@ package body TicketProgramPackage is
 
     begin
 
-        NumberDollars  := 0;
-        NumberQuarters := 0;
-        NumberDimes    := 0;
-        NumberNickels  := 0;
-        NumberPennies  := 0;
-
         TotalChangeInteger := Integer (TotalChange * 100);
 
         NumberDollars      := Find_Number_Coins (100, TotalChangeInteger);
