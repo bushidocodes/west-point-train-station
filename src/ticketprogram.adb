@@ -5,8 +5,8 @@ procedure TicketProgram is
     MenuChoice    : Natural         := 0;
     NewburgCost   : constant Money  := 3.50;
     NyackCost     : constant Money  := 5.25;
-    NewburgSupply : Integer         := 10;
-    NyackSupply   : Integer         := 15;
+    NewburgSupply : Natural         := 10;
+    NyackSupply   : Natural         := 15;
     NumberTickets : Integer;
     TotalCost     : Money           := 0.00;
     AmountPaid    : Money           := 0.00;
