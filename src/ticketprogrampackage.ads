@@ -1,6 +1,10 @@
+with Ada.Text_IO;
 package TicketProgramPackage is
 
-    procedure View_Total_Sales (TotalProfit : in Float);
+    type Money is delta 0.01 digits 10;
+    package Money_IO is new Ada.Text_IO.Decimal_IO (Money);
+
+    procedure View_Total_Sales (TotalProfit : in Money);
     --Pre: Inputs Total Profit
     --Post: Outputs the total profit to the user
 
@@ -9,7 +13,7 @@ package TicketProgramPackage is
     --Pre: Input Integer values of the number of Newburg and Nyack tickets available
     --Post: Lists out the tickets available
 
-    procedure Find_Change (TotalChange : in Float);
+    procedure Find_Change (TotalChange : in Money);
     --Pre: Input amount of change
 --Post: Outputs the number of each increment of change that must be returned
 

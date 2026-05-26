@@ -1,17 +1,17 @@
-with Ada.Text_IO, Ada.Float_Text_IO, Ada.Integer_Text_IO, TicketProgramPackage;
-use Ada.Text_IO, Ada.Float_Text_IO, Ada.Integer_Text_IO, TicketProgramPackage;
+with Ada.Text_IO, Ada.Integer_Text_IO, TicketProgramPackage;
+use Ada.Text_IO, Ada.Integer_Text_IO, TicketProgramPackage;
 
 procedure TicketProgram is
-    MenuChoice    : Natural        := 0;
-    NewburgCost   : constant Float := 3.50;
-    NyackCost     : constant Float := 5.25;
-    NewburgSupply : Integer        := 10;
-    NyackSupply   : Integer        := 15;
+    MenuChoice    : Natural         := 0;
+    NewburgCost   : constant Money  := 3.50;
+    NyackCost     : constant Money  := 5.25;
+    NewburgSupply : Integer         := 10;
+    NyackSupply   : Integer         := 15;
     NumberTickets : Integer;
-    TotalCost     : Float          := 0.00;
-    AmountPaid    : Float          := 0.00;
-    TotalChange   : Float          := 0.00;
-    TotalProfit   : Float          := 0.00;
+    TotalCost     : Money           := 0.00;
+    AmountPaid    : Money           := 0.00;
+    TotalChange   : Money           := 0.00;
+    TotalProfit   : Money           := 0.00;
 
     procedure Newburg is
     begin
@@ -24,16 +24,16 @@ procedure TicketProgram is
             New_Line;
             Put ("Sufficient Supply");
 
-            TotalCost := NewburgCost * Float (NumberTickets);
+            TotalCost := NewburgCost * NumberTickets;
 
             New_Line;
             Put ("The total cost is > $");
-            Put (TotalCost, Aft => 2, Exp => 0);
+            Money_IO.Put (TotalCost, Aft => 2, Exp => 0);
             New_Line;
             Put ("Enter amount paid");
             New_Line;
             Put ("> $");
-            Get (AmountPaid);
+            Money_IO.Get (AmountPaid);
 
             TotalChange := AmountPaid - TotalCost;
 
@@ -65,16 +65,16 @@ procedure TicketProgram is
             New_Line;
             Put ("Sufficient Supply");
 
-            TotalCost := NyackCost * Float (NumberTickets);
+            TotalCost := NyackCost * NumberTickets;
 
             New_Line;
             Put ("The total cost is > $");
-            Put (TotalCost, Aft => 2, Exp => 0);
+            Money_IO.Put (TotalCost, Aft => 2, Exp => 0);
             New_Line;
             Put ("Enter amount paid");
             New_Line;
             Put ("> $");
-            Get (AmountPaid);
+            Money_IO.Get (AmountPaid);
 
             TotalChange := AmountPaid - TotalCost;
 
