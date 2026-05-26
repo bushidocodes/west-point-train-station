@@ -1,5 +1,5 @@
 with Ada.Text_IO;
-package TicketProgramPackage is
+package Ticket_Sales is
 
     type Money is delta 0.01 digits 10;
     package Money_IO is new Ada.Text_IO.Decimal_IO (Money);
@@ -13,4 +13,4 @@ package TicketProgramPackage is
     procedure Find_Change (TotalChange : in Money)
        with Pre => TotalChange >= 0.00;
 
-end TicketProgramPackage;
+end Ticket_Sales;
