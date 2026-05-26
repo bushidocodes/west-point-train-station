@@ -1,5 +1,5 @@
-with Ada.Text_IO, Ada.Integer_Text_IO;
-use Ada.Text_IO, Ada.Integer_Text_IO;
+with Ada.Text_IO;
+use Ada.Text_IO;
 
 package body TicketProgramPackage is
 
@@ -15,21 +15,16 @@ package body TicketProgramPackage is
     is
     begin
         New_Line;
-        Put ("Ticket Inventory:");
-        New_Line;
+        Put_Line ("Ticket Inventory:");
 
         for Count in 1 .. NewburgSupply loop
-            Put (Count);
-            Put (" Newburg Ticket");
-            New_Line;
+            Put_Line (Count'Image & " Newburg Ticket");
         end loop;
 
         New_Line;
 
         for Count in 1 .. NyackSupply loop
-            Put (Count);
-            Put (" Nyack Ticket");
-            New_Line;
+            Put_Line (Count'Image & " Nyack Ticket");
         end loop;
 
     end Check_Tickets;
@@ -47,7 +42,6 @@ package body TicketProgramPackage is
 
     begin
 
-        --Initialize variable;
         NumberDollars  := 0;
         NumberQuarters := 0;
         NumberDimes    := 0;
@@ -56,7 +50,6 @@ package body TicketProgramPackage is
 
         TotalChangeInteger := Integer (TotalChange * 100);
 
-        --calculate amount of dollars needed]
         NumberDollars      := Find_Number_Coins (100, TotalChangeInteger);
         TotalChangeInteger := TotalChangeInteger - (NumberDollars * 100);
 
@@ -70,33 +63,13 @@ package body TicketProgramPackage is
         TotalChangeInteger := TotalChangeInteger - (NumberNickels * 5);
 
         NumberPennies      := Find_Number_Coins (1, TotalChangeInteger);
-        TotalChangeInteger := TotalChangeInteger - (NumberPennies * 1);
-
-        --Output Results
-        New_Line;
-        Put ("Give the customer ");
-        Put (NumberDollars);
-        Put (" Dollars");
 
         New_Line;
-        Put ("Give the customer ");
-        Put (NumberQuarters);
-        Put (" Quarters");
-
-        New_Line;
-        Put ("Give the customer ");
-        Put (NumberDimes);
-        Put (" Dimes");
-
-        New_Line;
-        Put ("Give the customer ");
-        Put (NumberNickels);
-        Put (" Nickels");
-
-        New_Line;
-        Put ("Give the customer ");
-        Put (NumberPennies);
-        Put (" Pennies");
+        Put_Line ("Give the customer" & NumberDollars'Image  & " Dollars");
+        Put_Line ("Give the customer" & NumberQuarters'Image & " Quarters");
+        Put_Line ("Give the customer" & NumberDimes'Image    & " Dimes");
+        Put_Line ("Give the customer" & NumberNickels'Image  & " Nickels");
+        Put_Line ("Give the customer" & NumberPennies'Image  & " Pennies");
 
     end Find_Change;
 
