@@ -11,7 +11,7 @@ package body TicketProgramPackage is
     end View_Total_Sales;
 
     procedure Check_Tickets
-       (NewburgSupply : in Integer; NyackSupply : in Integer)
+       (NewburgSupply : in Natural; NyackSupply : in Natural)
     is
     begin
         New_Line;
