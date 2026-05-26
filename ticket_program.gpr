@@ -3,7 +3,7 @@ project Ticket_Program is
    for Source_Dirs use ("src");
    for Object_Dir  use "obj";
    for Exec_Dir    use ".";
-   for Main        use ("ticket_program.adb");
+   for Main        use ("ticket_program.adb", "ticket_sales_tests.adb");
 
    package Compiler is
       for Default_Switches ("Ada") use ("-gnat2022");

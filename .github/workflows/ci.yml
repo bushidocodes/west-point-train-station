@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up GNAT toolchain
+        uses: alire-project/setup-alire@v2
+        with:
+          toolchain: gnat_native gprbuild
+
+      - name: Build
+        run: gprbuild -P ticket_program.gpr
+
+      - name: Run tests (Linux / macOS)
+        if: runner.os != 'Windows'
+        run: ./ticket_sales_tests
+
+      - name: Run tests (Windows)
+        if: runner.os == 'Windows'
+        run: .\ticket_sales_tests.exe
