@@ -22,12 +22,12 @@ jobs:
           toolchain: gnat_native gprbuild
 
       - name: Build
-        run: gprbuild -P ticket_program.gpr
+        run: alr exec -- gprbuild -P ticket_program.gpr
 
       - name: Run tests (Linux / macOS)
         if: runner.os != 'Windows'
-        run: ./ticket_sales_tests
+        run: alr exec -- ./ticket_sales_tests
 
       - name: Run tests (Windows)
         if: runner.os == 'Windows'
-        run: .\ticket_sales_tests.exe
+        run: alr exec -- .\ticket_sales_tests.exe
