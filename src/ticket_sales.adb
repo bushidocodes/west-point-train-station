@@ -1,7 +1,7 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-package body TicketProgramPackage is
+package body Ticket_Sales is
 
     procedure View_Total_Sales (TotalProfit : in Money) is
     begin
@@ -67,4 +67,4 @@ package body TicketProgramPackage is
 
     end Find_Change;
 
-end TicketProgramPackage;
+end Ticket_Sales;

@@ -1,7 +1,7 @@
-with Ada.Text_IO, Ada.Integer_Text_IO, Ada.Strings.Unbounded, TicketProgramPackage;
-use Ada.Text_IO, Ada.Integer_Text_IO, Ada.Strings.Unbounded, TicketProgramPackage;
+with Ada.Text_IO, Ada.Integer_Text_IO, Ada.Strings.Unbounded, Ticket_Sales;
+use Ada.Text_IO, Ada.Integer_Text_IO, Ada.Strings.Unbounded, Ticket_Sales;
 
-procedure TicketProgram is
+procedure Ticket_Program is
 
     type Destination is record
         Name           : Unbounded_String;
@@ -148,4 +148,4 @@ begin
         end case;
     end loop;
 
-end TicketProgram;
+end Ticket_Program;

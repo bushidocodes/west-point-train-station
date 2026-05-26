@@ -32,7 +32,7 @@ Alire will prompt you to choose a GNAT version and install it together with `gpr
 ### Build
 
 ```sh
-gprbuild -P ticketprogram.gpr
+gprbuild -P ticket_program.gpr
 ```
 
 This produces `ticketprogram` (Linux/macOS) or `ticketprogram.exe` (Windows) in the project root.
@@ -40,14 +40,14 @@ This produces `ticketprogram` (Linux/macOS) or `ticketprogram.exe` (Windows) in 
 ### Run
 
 ```sh
-./ticketprogram        # Linux / macOS
-.\ticketprogram.exe    # Windows
+./ticket_program        # Linux / macOS
+.\ticket_program.exe    # Windows
 ```
 
 ### Clean
 
 ```sh
-gprclean -P ticketprogram.gpr
+gprclean -P ticket_program.gpr
 ```
 
 **_Problem Statement_**
