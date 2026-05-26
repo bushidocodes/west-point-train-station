@@ -14,12 +14,40 @@ Things I remember from this course include:
 
 ## Running the Program
 
-You should be able to compile and run the program with
+### Prerequisites
+
+You need a GNAT Ada compiler and `gprbuild`. Both are available through your system package manager or via [Alire](https://alire.ada.dev), the Ada package manager.
+
+**Ubuntu / Debian**
+```sh
+sudo apt install gnat gprbuild
+```
+
+**Windows or macOS** — install [Alire](https://alire.ada.dev), then:
+```sh
+alr toolchain --select
+```
+Alire will prompt you to choose a GNAT version and install it together with `gprbuild`.
+
+### Build
 
 ```sh
-./install.sh
-make
-./ticketprogram
+gprbuild -P ticketprogram.gpr
+```
+
+This produces `ticketprogram` (Linux/macOS) or `ticketprogram.exe` (Windows) in the project root.
+
+### Run
+
+```sh
+./ticketprogram        # Linux / macOS
+.\ticketprogram.exe    # Windows
+```
+
+### Clean
+
+```sh
+gprclean -P ticketprogram.gpr
 ```
 
 **_Problem Statement_**
