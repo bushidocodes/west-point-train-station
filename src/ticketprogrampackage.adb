@@ -35,12 +35,12 @@ package body TicketProgramPackage is
     end Check_Tickets;
 
     procedure Find_Change (TotalChange : in Money) is
-        TotalChangeInteger : Integer;
-        NumberDollars      : Integer;
-        NumberQuarters     : Integer;
-        NumberDimes        : Integer;
-        NumberNickels      : Integer;
-        NumberPennies      : Integer;
+        TotalChangeInteger : Natural;
+        NumberDollars      : Natural;
+        NumberQuarters     : Natural;
+        NumberDimes        : Natural;
+        NumberNickels      : Natural;
+        NumberPennies      : Natural;
 
         function Find_Number_Coins (Value, Amount : Integer) return Integer is
            (Amount / Value);
