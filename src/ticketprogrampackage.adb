@@ -43,18 +43,7 @@ package body TicketProgramPackage is
         NumberPennies      : Integer;
 
         function Find_Number_Coins (Value, Amount : Integer) return Integer is
-            Number          : Natural := 0;
-            Amount_Internal : Integer;
-        begin
-            Amount_Internal := Amount;
-
-            while Value <= Amount_Internal loop
-                Number          := Number + 1;
-                Amount_Internal := Amount_Internal - Value;
-            end loop;
-
-            return Number;
-        end Find_Number_Coins;
+           (Amount / Value);
 
     begin
 
