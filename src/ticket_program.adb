@@ -34,9 +34,9 @@ procedure Ticket_Program is
         Put_Line ("Purchase how many tickets to " & To_String (Dest.Name) & "?");
         Put (">");
         Get (NumberTickets);
+        New_Line;
 
         if Dest.Supply - NumberTickets >= 0 and then NumberTickets > 0 then
-            New_Line;
             Put_Line ("Sufficient Supply");
 
             TotalCost := Dest.Cost * NumberTickets;
@@ -58,10 +58,8 @@ procedure Ticket_Program is
                 Put ("Insufficient Payment: Transaction Terminated");
             end if;
         elsif NumberTickets <= 0 then
-            New_Line;
             Put ("Invalid Input");
         else
-            New_Line;
             Put ("Insufficient Supply");
             Check_Tickets (Newburg_Route.Supply, Nyack_Route.Supply);
         end if;
@@ -100,7 +98,6 @@ procedure Ticket_Program is
                 when nothing =>
                     New_Line;
                     Put_Line ("Invalid Input: Reenter");
-                    New_Line;
             end case;
         end loop;
     end TrainDeparture;
@@ -123,23 +120,18 @@ begin
             when 1 =>
                 New_Line;
                 Sell_Tickets (Newburg_Route);
-                New_Line;
             when 2 =>
                 New_Line;
                 Sell_Tickets (Nyack_Route);
-                New_Line;
             when 3 =>
                 New_Line;
                 TrainDeparture;
-                New_Line;
             when 4 =>
                 New_Line;
                 Check_Tickets (Newburg_Route.Supply, Nyack_Route.Supply);
-                New_Line;
             when 5 =>
                 New_Line;
                 View_Total_Sales (TotalProfit);
-                New_Line;
             when 6 =>
                 null;
             when others =>
