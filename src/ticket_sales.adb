@@ -5,16 +5,15 @@ package body Ticket_Sales is
 
     procedure View_Total_Sales (TotalProfit : in Money) is
     begin
-        New_Line;
         Put ("The total of sales is $");
         Money_IO.Put (TotalProfit, Fore => 1, Aft => 2, Exp => 0);
+        New_Line;
     end View_Total_Sales;
 
     procedure Check_Tickets
        (NewburgSupply : in Natural; NyackSupply : in Natural)
     is
     begin
-        New_Line;
         Put_Line ("Ticket Inventory:");
 
         for Count in 1 .. NewburgSupply loop
@@ -44,7 +43,6 @@ package body Ticket_Sales is
     procedure Find_Change (TotalChange : in Money) is
         C : constant Change_Breakdown := Calculate_Change (TotalChange);
     begin
-        New_Line;
         Put_Line ("Give the customer" & C.Dollars'Image  & " Dollars");
         Put_Line ("Give the customer" & C.Quarters'Image & " Quarters");
         Put_Line ("Give the customer" & C.Dimes'Image    & " Dimes");
