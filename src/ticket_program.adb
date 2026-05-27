@@ -118,24 +118,18 @@ begin
 
         case MenuChoice is
             when 1 =>
-                New_Line;
                 Sell_Tickets (Newburg_Route);
             when 2 =>
-                New_Line;
                 Sell_Tickets (Nyack_Route);
             when 3 =>
-                New_Line;
                 TrainDeparture;
             when 4 =>
-                New_Line;
                 Check_Tickets (Newburg_Route.Supply, Nyack_Route.Supply);
             when 5 =>
-                New_Line;
                 View_Total_Sales (TotalProfit);
             when 6 =>
                 null;
             when others =>
-                New_Line;
                 Put_Line ("Invalid Input: Please enter 1-6");
         end case;
     end loop;
