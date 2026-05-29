@@ -33,7 +33,13 @@ procedure Ticket_Program is
     begin
         Put_Line ("Purchase how many tickets to " & To_String (Dest.Name) & "?");
         Put (">");
-        Get (NumberTickets);
+        begin
+            Get (NumberTickets);
+        exception
+            when Data_Error =>
+                Skip_Line;
+                NumberTickets := 0;
+        end;
         New_Line;
 
         if Dest.Supply - NumberTickets >= 0 and then NumberTickets > 0 then
@@ -46,7 +52,13 @@ procedure Ticket_Program is
             New_Line;
             Put_Line ("Enter amount paid");
             Put ("> $");
-            Money_IO.Get (AmountPaid);
+            begin
+                Money_IO.Get (AmountPaid);
+            exception
+                when Data_Error =>
+                    Skip_Line;
+                    AmountPaid := 0.00;
+            end;
 
             TotalChange := AmountPaid - TotalCost;
 
@@ -114,7 +126,13 @@ begin
         Put_Line ("6)End Program");
         Put (">");
 
-        Get (MenuChoice);
+        begin
+            Get (MenuChoice);
+        exception
+            when Data_Error | Constraint_Error =>
+                Skip_Line;
+                MenuChoice := 0;
+        end;
 
         case MenuChoice is
             when 1 =>
