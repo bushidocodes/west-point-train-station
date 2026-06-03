@@ -10,12 +10,8 @@ procedure Ticket_Program is
         Initial_Supply : Natural;
     end record;
 
-    MenuChoice    : Natural := 0;
-    NumberTickets : Integer;
-    TotalCost     : Money   := 0.00;
-    AmountPaid    : Money   := 0.00;
-    TotalChange   : Money   := 0.00;
-    TotalProfit   : Money   := 0.00;
+    MenuChoice  : Natural := 0;
+    TotalProfit : Money   := 0.00;
 
     Newburg_Route : Destination :=
        (Name           => To_Unbounded_String ("Newburg"),
@@ -30,6 +26,10 @@ procedure Ticket_Program is
         Initial_Supply => 15);
 
     procedure Sell_Tickets (Dest : in out Destination) is
+        NumberTickets : Natural := 0;
+        TotalCost     : Money   := 0.00;
+        AmountPaid    : Money   := 0.00;
+        TotalChange   : Money   := 0.00;
     begin
         Put_Line ("Purchase how many tickets to " & To_String (Dest.Name) & "?");
         Put (">");
@@ -39,10 +39,12 @@ procedure Ticket_Program is
             when Data_Error =>
                 Skip_Line;
                 NumberTickets := 0;
+            when Constraint_Error =>
+                NumberTickets := 0;
         end;
         New_Line;
 
-        if Dest.Supply - NumberTickets >= 0 and then NumberTickets > 0 then
+        if NumberTickets > 0 and then NumberTickets <= Dest.Supply then
             Put_Line ("Sufficient Supply");
 
             TotalCost := Dest.Cost * NumberTickets;
@@ -69,7 +71,7 @@ procedure Ticket_Program is
             else
                 Put_Line ("Insufficient Payment: Transaction Terminated");
             end if;
-        elsif NumberTickets <= 0 then
+        elsif NumberTickets = 0 then
             Put_Line ("Invalid Input");
         else
             Put_Line ("Insufficient Supply");
