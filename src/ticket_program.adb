@@ -26,10 +26,11 @@ procedure Ticket_Program is
         Initial_Supply => 15);
 
     procedure Sell_Tickets (Dest : in out Destination) is
-        NumberTickets : Natural := 0;
-        TotalCost     : Money   := 0.00;
-        AmountPaid    : Money   := 0.00;
-        TotalChange   : Money   := 0.00;
+        NumberTickets : Natural  := 0;
+        TotalCost     : Money    := 0.00;
+        AmountPaid    : Money    := 0.00;
+        TotalChange   : Money    := 0.00;
+        Payment_Valid : Boolean  := True;
     begin
         Put_Line ("Purchase how many tickets to " & To_String (Dest.Name) & "?");
         Put (">");
@@ -54,22 +55,26 @@ procedure Ticket_Program is
             New_Line;
             Put_Line ("Enter amount paid");
             Put ("> $");
+            Payment_Valid := True;
             begin
                 Money_IO.Get (AmountPaid);
             exception
                 when Data_Error =>
                     Skip_Line;
-                    AmountPaid := 0.00;
+                    Payment_Valid := False;
+                    Put_Line ("Invalid input: please enter a dollar amount");
             end;
 
-            TotalChange := AmountPaid - TotalCost;
+            if Payment_Valid then
+                TotalChange := AmountPaid - TotalCost;
 
-            if TotalChange >= 0.0 then
-                Find_Change (TotalChange);
-                Dest.Supply := Dest.Supply - NumberTickets;
-                TotalProfit := TotalProfit + TotalCost;
-            else
-                Put_Line ("Insufficient Payment: Transaction Terminated");
+                if TotalChange >= 0.0 then
+                    Find_Change (TotalChange);
+                    Dest.Supply := Dest.Supply - NumberTickets;
+                    TotalProfit := TotalProfit + TotalCost;
+                else
+                    Put_Line ("Insufficient Payment: Transaction Terminated");
+                end if;
             end if;
         elsif NumberTickets = 0 then
             Put_Line ("Invalid Input");
