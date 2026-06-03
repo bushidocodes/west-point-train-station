@@ -43,11 +43,11 @@ package body Ticket_Sales is
     procedure Find_Change (TotalChange : in Money) is
         C : constant Change_Breakdown := Calculate_Change (TotalChange);
     begin
-        Put_Line ("Give the customer" & C.Dollars'Image  & " Dollars");
-        Put_Line ("Give the customer" & C.Quarters'Image & " Quarters");
-        Put_Line ("Give the customer" & C.Dimes'Image    & " Dimes");
-        Put_Line ("Give the customer" & C.Nickels'Image  & " Nickels");
-        Put_Line ("Give the customer" & C.Pennies'Image  & " Pennies");
+        if C.Dollars  > 0 then Put_Line ("Give the customer" & C.Dollars'Image  & " Dollars");  end if;
+        if C.Quarters > 0 then Put_Line ("Give the customer" & C.Quarters'Image & " Quarters"); end if;
+        if C.Dimes    > 0 then Put_Line ("Give the customer" & C.Dimes'Image    & " Dimes");    end if;
+        if C.Nickels  > 0 then Put_Line ("Give the customer" & C.Nickels'Image  & " Nickels");  end if;
+        if C.Pennies  > 0 then Put_Line ("Give the customer" & C.Pennies'Image  & " Pennies");  end if;
     end Find_Change;
 
 end Ticket_Sales;
