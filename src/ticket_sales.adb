@@ -1,5 +1,5 @@
-with Ada.Text_IO;
-use Ada.Text_IO;
+with Ada.Text_IO, Ada.Strings, Ada.Strings.Fixed;
+use Ada.Text_IO, Ada.Strings, Ada.Strings.Fixed;
 
 package body Ticket_Sales is
 
@@ -17,7 +17,7 @@ package body Ticket_Sales is
         Put_Line ("Ticket Inventory:");
 
         for Count in 1 .. NewburgSupply loop
-            Put_Line (Count'Image & " Newburg Ticket");
+            Put_Line (Trim (Count'Image, Left) & " Newburg Ticket");
         end loop;
 
         New_Line;
@@ -26,7 +26,7 @@ package body Ticket_Sales is
             Count : Natural := 1;
         begin
             while Count <= NyackSupply loop
-                Put_Line (Count'Image & " Nyack Ticket");
+                Put_Line (Trim (Count'Image, Left) & " Nyack Ticket");
                 Count := Count + 1;
             end loop;
         end;
