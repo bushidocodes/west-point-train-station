@@ -6,7 +6,13 @@ project Ticket_Program is
    for Main        use ("ticket_program.adb", "ticket_sales_tests.adb");
 
    package Compiler is
-      for Default_Switches ("Ada") use ("-gnat2022");
+      for Default_Switches ("Ada") use (
+         "-gnat2022",
+         "-Wall",
+         "-gnatwae",
+         "-gnatf",
+         "-gnatVa"
+      );
    end Compiler;
 
 end Ticket_Program;
