@@ -67,12 +67,12 @@ procedure Ticket_Program is
                 Dest.Supply := Dest.Supply - NumberTickets;
                 TotalProfit := TotalProfit + TotalCost;
             else
-                Put ("Insufficient Payment: Transaction Terminated");
+                Put_Line ("Insufficient Payment: Transaction Terminated");
             end if;
         elsif NumberTickets <= 0 then
-            Put ("Invalid Input");
+            Put_Line ("Invalid Input");
         else
-            Put ("Insufficient Supply");
+            Put_Line ("Insufficient Supply");
             Check_Tickets (Newburg_Route.Supply, Nyack_Route.Supply);
         end if;
     end Sell_Tickets;
