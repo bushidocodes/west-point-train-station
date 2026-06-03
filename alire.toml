@@ -1,3 +1,5 @@
-name = "ticket_program"
+name        = "ticket_program"
 description = "West Point Train Station ticket sales program"
-version = "0.1.0"
+version     = "0.1.0"
+authors     = ["Sean McBride", "Matt Webb"]
+licenses    = "MIT"
