@@ -62,4 +62,9 @@ package body Ticket_Sales is
         end;
     end Find_Change;
 
+    function Is_Exact_Change (Amount : Money) return Boolean is
+    begin
+        return Amount = 0.00;
+    end Is_Exact_Change;
+
 end Ticket_Sales;

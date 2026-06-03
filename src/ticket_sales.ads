@@ -24,4 +24,6 @@ package Ticket_Sales is
     procedure Find_Change (TotalChange : in Money)
        with Pre => TotalChange >= 0.00;
 
+    function Is_Exact_Change (Amount : Money) return Boolean;
+
 end Ticket_Sales;
