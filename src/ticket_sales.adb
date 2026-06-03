@@ -22,9 +22,14 @@ package body Ticket_Sales is
 
         New_Line;
 
-        for Count in 1 .. NyackSupply loop
-            Put_Line (Count'Image & " Nyack Ticket");
-        end loop;
+        declare
+            Count : Natural := 1;
+        begin
+            while Count <= NyackSupply loop
+                Put_Line (Count'Image & " Nyack Ticket");
+                Count := Count + 1;
+            end loop;
+        end;
 
     end Check_Tickets;
 
