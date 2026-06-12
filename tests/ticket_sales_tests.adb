@@ -64,6 +64,10 @@ begin
     Check_Change (0.99, 0, 3, 2, 0, 4, "$0.99 near-dollar");
     Check_Change (3.50, 3, 2, 0, 0, 0, "$3.50 Newburg fare change from $7");
     Check_Change (5.25, 5, 1, 0, 0, 0, "$5.25 Nyack fare change from $10.50");
+    Check_Change (1.41, 1, 1, 1, 1, 1, "$1.41 all five denominations");
+    Check_Change (0.30, 0, 1, 0, 1, 0, "$0.30 quarter and nickel not three dimes");
+    Check_Change (3.76, 3, 3, 0, 0, 1, "$3.76 multiple dollars with trailing coins");
+    Check_Change (0.75, 0, 3, 0, 0, 0, "$0.75 max quarters");
 
     Check_Exact (0.00, True,  "0.00 is exact change");
     Check_Exact (0.01, False, "0.01 is not exact change");
