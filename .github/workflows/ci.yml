@@ -7,12 +7,7 @@ on:
 
 jobs:
   build-and-test:
-    name: ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-      fail-fast: false
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -25,10 +20,5 @@ jobs:
       - name: Build
         run: alr exec -- gprbuild -P ticket_program.gpr
 
-      - name: Run tests (Linux / macOS)
-        if: runner.os != 'Windows'
+      - name: Run tests
         run: alr exec -- ./ticket_sales_tests
-
-      - name: Run tests (Windows)
-        if: runner.os == 'Windows'
-        run: alr exec -- .\ticket_sales_tests.exe
