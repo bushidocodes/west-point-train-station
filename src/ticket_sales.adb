@@ -54,11 +54,11 @@ package body Ticket_Sales is
         declare
             C : constant Change_Breakdown := Calculate_Change (TotalChange);
         begin
-            if C.Dollars  > 0 then Put_Line ("Give the customer" & C.Dollars'Image  & " Dollars");  end if;
-            if C.Quarters > 0 then Put_Line ("Give the customer" & C.Quarters'Image & " Quarters"); end if;
-            if C.Dimes    > 0 then Put_Line ("Give the customer" & C.Dimes'Image    & " Dimes");    end if;
-            if C.Nickels  > 0 then Put_Line ("Give the customer" & C.Nickels'Image  & " Nickels");  end if;
-            if C.Pennies  > 0 then Put_Line ("Give the customer" & C.Pennies'Image  & " Pennies");  end if;
+            if C.Dollars  > 0 then Put_Line ("Give the customer" & C.Dollars'Image  & (if C.Dollars  = 1 then " Dollar"  else " Dollars"));  end if;
+            if C.Quarters > 0 then Put_Line ("Give the customer" & C.Quarters'Image & (if C.Quarters = 1 then " Quarter" else " Quarters")); end if;
+            if C.Dimes    > 0 then Put_Line ("Give the customer" & C.Dimes'Image    & (if C.Dimes    = 1 then " Dime"    else " Dimes"));    end if;
+            if C.Nickels  > 0 then Put_Line ("Give the customer" & C.Nickels'Image  & (if C.Nickels  = 1 then " Nickel"  else " Nickels"));  end if;
+            if C.Pennies  > 0 then Put_Line ("Give the customer" & C.Pennies'Image  & (if C.Pennies  = 1 then " Penny"   else " Pennies"));  end if;
         end;
     end Find_Change;
 
