@@ -47,7 +47,7 @@ package body Ticket_Sales is
 
     procedure Find_Change (TotalChange : in Money) is
     begin
-        if TotalChange = 0.00 then
+        if Is_Exact_Change (TotalChange) then
             Put_Line ("Exact price paid.");
             return;
         end if;
