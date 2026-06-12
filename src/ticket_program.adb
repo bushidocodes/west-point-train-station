@@ -25,11 +25,7 @@ procedure Ticket_Program is
         Supply         => 15,
         Initial_Supply => 15);
 
-    procedure Sell_Tickets
-       (Dest          : in out Destination;
-        Newburg_Supply : in Natural;
-        Nyack_Supply   : in Natural)
-    is
+    procedure Sell_Tickets (Dest : in out Destination) is
         NumberTickets : Natural  := 0;
         TotalCost     : Money    := 0.00;
         AmountPaid    : Money    := 0.00;
@@ -84,7 +80,7 @@ procedure Ticket_Program is
             Put_Line ("Invalid Input");
         else
             Put_Line ("Insufficient Supply");
-            Check_Tickets (Newburg_Supply, Nyack_Supply);
+            Check_Tickets (Newburg_Route.Supply, Nyack_Route.Supply);
         end if;
     end Sell_Tickets;
 
@@ -147,9 +143,9 @@ begin
 
         case MenuChoice is
             when 1 =>
-                Sell_Tickets (Newburg_Route, Newburg_Route.Supply, Nyack_Route.Supply);
+                Sell_Tickets (Newburg_Route);
             when 2 =>
-                Sell_Tickets (Nyack_Route, Newburg_Route.Supply, Nyack_Route.Supply);
+                Sell_Tickets (Nyack_Route);
             when 3 =>
                 TrainDeparture;
             when 4 =>
